@@ -1,6 +1,7 @@
 import pygame
 import sys
 from scripts.player import Player
+from scripts.utils import load_imgs
 
 class Game:
     def __init__(self):
@@ -11,7 +12,7 @@ class Game:
         self.player = Player()
         
         self.dt = 0.1
-
+                        
     def run(self):
         while True:
             self.dt = self.clock.tick(60) / 1000.0  # Convert to seconds
