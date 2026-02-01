@@ -9,10 +9,12 @@ class Game:
         pygame.display.set_caption('Color Beatchange Platformer')
         self.clock = pygame.time.Clock()
         self.player = Player()
+        
+        self.dt = 0.1
 
     def run(self):
         while True:
-            dt = self.clock.tick(60) / 1000.0  # Convert to seconds
+            self.dt = self.clock.tick(60) / 1000.0  # Convert to seconds
             
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
@@ -23,7 +25,7 @@ class Game:
                         pygame.quit()
                         sys.exit()
             
-            self.player.update(dt)
+            self.player.update(self.dt)
             self.screen.fill((0, 0, 0))
             self.player.draw(self.screen)
             pygame.display.update()
